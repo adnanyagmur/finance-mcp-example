@@ -1,6 +1,13 @@
 ## Finance MCP — FastMCP + Truncgil Örneği
 
+MCP (Model Context Protocol), yapay zeka modellerinin harici veri kaynakları, API’ler veya araçlarla standart bir format üzerinden güvenli ve esnek şekilde iletişim kurmasını sağlayan bir protokoldür.
+
+Kısaca: “Yapay zekaya dış dünyayla konuşma dili” diyebiliriz — böylece model, farklı servislerden veri alabilir, işlem yapabilir veya özel komutlar çalıştırabilir.
+
+![mcp](https://github.com/user-attachments/assets/1fc447d4-a3b2-4798-bcbe-df20f767de07)
+
 Basit bir MCP sunucusu. `fastmcp` ile çalışır, Truncgil `today.json` uç‑noktasından veri çeker ve iki tool sağlar:
+
 
 - `finance_truncgil_get_today(keys: Optional[list[str]])`
 - `finance_truncgil_get_symbol(symbol: str)`
