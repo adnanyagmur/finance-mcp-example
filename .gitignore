@@ -1,0 +1,46 @@
+# OS
+.DS_Store
+
+# Python bytecode / cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# Test / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.mypy_cache/
+.pytype/
+
+# Logs
+*.log
+
+# Environment files (secrets)
+.env
+.env.*
+*.env
+
+# IDE/editor
+.vscode/
+.idea/
+
+# Cursor (avoid committing local MCP config with absolute paths)
+.cursor/
+
+
