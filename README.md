@@ -9,7 +9,7 @@ Kısaca: “Yapay zekaya dış dünyayla konuşma dili” diyebiliriz — böyle
 Basit bir MCP sunucusu. `fastmcp` ile çalışır, Truncgil `today.json` uç‑noktasından veri çeker ve iki tool sağlar:
 
 
-- `finance_truncgil_get_today(keys: Optional[list[str]])`
+- `finance_truncgil_get_today()`
 - `finance_truncgil_get_symbol(symbol: str)`
 
 Veri kaynağı (doğru uç‑nokta): `https://finans.truncgil.com/today.json`
@@ -52,7 +52,7 @@ Bu script, yerel MCP sunucusuna bağlanır ve iki tool’u çağırır.
 Ardından Cursor'a reload atınız. Chat’te ayarlar Agent mod ve Auto modda ilken "Bana usd try paritesini ver" gibi bir komutla çalıştırabilirsiniz.
 
 ### Örnek çağrılar
-- `finance_truncgil_get_today` girdi örneği: `{ "keys": ["USD", "EUR"] }`
+- `finance_truncgil_get_today` girdi örneği: `{}`
 - `finance_truncgil_get_symbol` girdi örneği: `{ "symbol": "USD" }`
 
 ### Notlar

@@ -12,12 +12,12 @@ async def main() -> None:
         tools = await client.list_tools()
         print("Tools:", tools)
 
-        # Örnek 1: Tümü (veya keys ile filtre)
+        # Örnek 1: Tümü (parametresiz)
         today = await client.call_tool(
             "finance_truncgil_get_today",
-            {"keys": ["USD", "EUR"]},
+            {},
         )
-        print("today (USD, EUR):", today)
+        print("today (all):", today)
 
         # Örnek 2: Tek sembol
         usd = await client.call_tool(

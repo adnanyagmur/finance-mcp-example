@@ -2,7 +2,7 @@
 # Not: Küçük ve hedefe yönelik yorumlar eklendi (neden'leri vurgular)
 from __future__ import annotations
 
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict
 
 import httpx
 from fastmcp import Context, FastMCP
@@ -60,12 +60,8 @@ async def _fetch_truncgil_today(ctx: Context | None = None) -> Dict[str, Any]:
 
 
 @mcp.tool
-async def finance_truncgil_get_today(keys: Optional[List[str]] = None, ctx: Context | None = None) -> Dict[str, Any]:
-    """Truncgil Finance 'today.json' verisini döndürür.
-
-    - keys verilirse: Yalnızca istenen üst seviye anahtarları filtreler
-    - Aksi halde: Tüm veriyi döndürür
-    """
+async def finance_truncgil_get_today(ctx: Context | None = None) -> Dict[str, Any]:
+    """Truncgil Finance 'today.json' verisinin tamamını döndürür (parametresiz)."""
     payload = await _fetch_truncgil_today(ctx)
 
     if isinstance(payload, dict) and payload.get("error"):
@@ -75,17 +71,10 @@ async def finance_truncgil_get_today(keys: Optional[List[str]] = None, ctx: Cont
     # Alan adları kaynakta farklı yazılabildiği için alternatifleri kontrol et
     update_date = payload.get("Update_Date") or payload.get("update_date") or payload.get("last_update")
 
-    if keys:
-        # İstenirse sadece belirli anahtarları dön
-        filtered: Dict[str, Any] = {k: payload[k] for k in keys if k in payload}
-        data: Dict[str, Any] = filtered
-    else:
-        data = payload
-
     return {
         "source": "truncgil",
         "update_date": update_date,
-        "data": data,
+        "data": payload,
     }
 
 
@@ -127,7 +116,6 @@ async def finance_truncgil_get_symbol(symbol: str, ctx: Context | None = None) -
 
 
 if __name__ == "__main__":
-    # Varsayılan: STDIO transport
     mcp.run()
 
 
